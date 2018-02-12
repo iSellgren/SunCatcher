@@ -1,4 +1,4 @@
-package com.example.isellgren.smartmirror;
+package com.example.isellgren.suncatcher;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;

@@ -9,7 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:background="@color/colorPrimary"
-    tools:context="com.example.isellgren.smartmirror.MainActivity">
+    tools:context="com.example.isellgren.suncatcher.MainActivity">
 
     <TextView
 

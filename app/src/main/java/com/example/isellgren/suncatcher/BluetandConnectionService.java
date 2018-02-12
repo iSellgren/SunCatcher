@@ -1,4 +1,4 @@
-package com.example.isellgren.smartmirror;
+package com.example.isellgren.suncatcher;
 
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;

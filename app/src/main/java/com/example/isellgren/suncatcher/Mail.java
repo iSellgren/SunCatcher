@@ -1,4 +1,4 @@
-package com.example.isellgren.smartmirror;
+package com.example.isellgren.suncatcher;
 
 import android.content.Intent;
 import android.os.Bundle;

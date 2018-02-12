@@ -3,21 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/media_route_menu_item"
-        android:title="Cast"
-        app:actionProviderClass="android.support.v7.app.MediaRouteActionProvider">
-        <item
-            android:id="@+id/bluetand"
-            android:checkable="false"
-            android:icon="@android:drawable/stat_sys_data_bluetooth"
-            android:onClick="onBlueClick"
-            android:title="@string/bluetooth" />
-        <item
-            android:id="@+id/mejl"
-            android:checkable="false"
-            android:icon="@android:drawable/ic_dialog_email"
-            android:onClick="onInfoClick"
-            android:title="@string/mail" />
-    </item>
+        android:id="@+id/bluetand"
+        android:icon="@android:drawable/stat_sys_data_bluetooth"
+        android:onClick="onBlueClick"
+        android:title="@string/bluetooth"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/mejl"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:onClick="onInfoClick"
+        android:title="@string/mail"
+        app:showAsAction="always" />
 
 </menu>

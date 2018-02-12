@@ -1,7 +1,6 @@
-package com.example.isellgren.smartmirror;
+package com.example.isellgren.suncatcher;
 
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.le.BluetoothLeScanner;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by iSellgren on 2018-02-08.

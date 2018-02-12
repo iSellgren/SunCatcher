@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.isellgren.smartmirror">
+    package="com.example.isellgren.suncatcher">
 
     <uses-feature android:name="android.hardware.bluetooth" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -17,20 +17,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.isellgren.smartmirror.LoginActivity">
+        <activity android:name="com.example.isellgren.suncatcher.LoginActivity">
 
         </activity>
         <activity
-            android:name="com.example.isellgren.smartmirror.RegisterActivity"
+            android:name="com.example.isellgren.suncatcher.RegisterActivity"
             android:label="Register Here" />
-        <activity android:name="com.example.isellgren.smartmirror.UserAreaActivity" />
+        <activity android:name="com.example.isellgren.suncatcher.UserAreaActivity" />
         <activity
-            android:name="com.example.isellgren.smartmirror.Mail"
+            android:name="com.example.isellgren.suncatcher.Mail"
             android:label="Mail" />
         <activity
-            android:name="com.example.isellgren.smartmirror.Bluetand"
+            android:name="com.example.isellgren.suncatcher.Bluetand"
             android:label="Bluetooth" />
-        <activity android:name="com.example.isellgren.smartmirror.MainActivity">
+        <activity android:name="com.example.isellgren.suncatcher.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
