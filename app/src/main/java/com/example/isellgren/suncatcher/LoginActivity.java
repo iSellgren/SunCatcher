@@ -32,11 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
 
     public void onInfoClick(MenuItem item) {
         {
@@ -58,4 +53,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+    public void onWifiClick(MenuItem item) {
+
+        if(item.getItemId() == R.id.wifi)
+        {
+            Intent l = new Intent(LoginActivity.this, Wifi.class);
+            startActivity(l);
+        }
+    }
+
+
 }

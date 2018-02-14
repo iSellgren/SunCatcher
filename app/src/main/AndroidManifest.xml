@@ -3,12 +3,14 @@
     package="com.example.isellgren.suncatcher">
 
     <uses-feature android:name="android.hardware.bluetooth" />
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,25 +19,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.isellgren.suncatcher.LoginActivity">
-
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity
-            android:name="com.example.isellgren.suncatcher.RegisterActivity"
+            android:name=".RegisterActivity"
             android:label="Register Here" />
-        <activity android:name="com.example.isellgren.suncatcher.UserAreaActivity" />
+        <activity android:name=".UserAreaActivity" />
         <activity
-            android:name="com.example.isellgren.suncatcher.Mail"
+            android:name=".Mail"
             android:label="Mail" />
         <activity
-            android:name="com.example.isellgren.suncatcher.Bluetand"
+            android:name=".Bluetand"
             android:label="Bluetooth" />
-        <activity android:name="com.example.isellgren.suncatcher.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Wifi"
+            android:label="@string/title_activity_wifi"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
