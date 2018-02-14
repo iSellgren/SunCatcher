@@ -6,18 +6,21 @@
         android:id="@+id/bluetand"
         android:icon="@android:drawable/stat_sys_data_bluetooth"
         android:onClick="onBlueClick"
-        android:title="@string/bluetooth"/>
+        android:title="@string/bluetooth"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/mejl"
         android:icon="@android:drawable/ic_dialog_email"
         android:onClick="onInfoClick"
-        android:title="@string/mail"/>
+        android:title="@string/mail"
+        app:showAsAction="always" />
     <item
         android:id="@+id/wifi"
         android:icon="@drawable/ic_mr_button_connecting_26_dark"
+        android:onClick="onWifiClick"
         android:title="@string/p2pwifi"
-        android:onClick="onWifiClick" />
+        app:showAsAction="always" />
 
 
 </menu>
