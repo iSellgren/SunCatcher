@@ -49,7 +49,7 @@ public class Wifi extends AppCompatActivity {
     }
 
     public void detectWifi(){
-        this.wifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        this.wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         this.wifiManager.startScan();
         this.wifiList = this.wifiManager.getScanResults();
 
@@ -106,7 +106,7 @@ public class Wifi extends AppCompatActivity {
                     tvLevel.setText("Low");
                 }
             } catch (NumberFormatException e){
-                Log.d("TAG", "Неверный формат строки");
+                Log.d("TAG", "Invalid format");
             }
             return item;
         }

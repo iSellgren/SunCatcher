@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".BeginActivity" />
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".RegisterActivity"
             android:label="Register Here" />
@@ -37,11 +38,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Wifi" />
         <activity
-            android:name=".Wifi">
-
-        </activity>
-
+            android:name=".Statistic"
+            android:label="Statistic" />
+        <activity android:name=".Profile" />
+        <activity android:name=".DeviceActivity"
+            android:label="Devices"/>
     </application>
 
 </manifest>

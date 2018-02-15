@@ -13,7 +13,7 @@
     <string name="subject">Subject</string>
     <string name="message">Message</string>
     <string name="send">Send</string>
-    <string name="mail">Mail</string>
+    <string name="mail">Contact us</string>
     <string name="help">Help</string>
     <string name="splashScreen">SunCatcher</string>
     <string name="bluetooth">Bluetooth</string>
@@ -25,5 +25,8 @@
     <string name="wifi_off">WiFi OFF</string>
     <string name="wifi_on">WiFI ON</string>
     <string name="title_activity_wifi">Wifi</string>
+    <string name="login_register">Login/Register</string>
+    <string name="title_activity_statistic">Statistic</string>
+    <string name="in_use">In use</string>
 
 </resources>
