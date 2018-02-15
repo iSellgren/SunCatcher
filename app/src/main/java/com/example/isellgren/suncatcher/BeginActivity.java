@@ -71,5 +71,8 @@ public class BeginActivity extends AppCompatActivity {
         Intent p = new Intent(BeginActivity.this, DeviceActivity.class);
         startActivity(p);
     }
+
+    public void onpsettingClick(View view) {
+    }
 }
 
