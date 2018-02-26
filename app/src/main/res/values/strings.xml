@@ -28,5 +28,9 @@
     <string name="login_register">Login/Register</string>
     <string name="title_activity_statistic">Statistic</string>
     <string name="in_use">In use</string>
+    <string name="settings">Settings</string>
+    <string name="profile">Profile</string>
+    <string name="devices">Devices</string>
+    <string name="statistics">Statistics</string>
 
 </resources>
