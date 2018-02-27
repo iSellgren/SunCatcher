@@ -1,23 +1,56 @@
 package com.example.isellgren.suncatcher;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 import static com.example.isellgren.suncatcher.R.layout.activity_begin;
 
-public class BeginActivity extends Activity {
+public class BeginActivity extends AppCompatActivity {
+
+    private DrawerLayout myDrawer;
+    private ActionBarDrawerToggle myToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(activity_begin);
 
+        myDrawer = (DrawerLayout) findViewById(R.id.myDrawer);
+        myToggle = new ActionBarDrawerToggle(this,myDrawer,R.string.open,R.string.close);
+
+        myDrawer.addDrawerListener(myToggle);
+        myToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if(myToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public void didTapButton(View view) {
+        Button button = (Button)findViewById(R.id.conbut);
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+
+
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+
+        button.startAnimation(myAnim);
     }
 
     public void onInfoClick(MenuItem item) {
@@ -76,5 +109,12 @@ public class BeginActivity extends Activity {
         startActivity(p);
     }
 
+    public void Logosite(View view) {
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_VIEW);
+        i.addCategory(Intent.CATEGORY_BROWSABLE);
+        i.setData(Uri.parse("http://Google.com"));
+        startActivity(i);
+    }
 }
 

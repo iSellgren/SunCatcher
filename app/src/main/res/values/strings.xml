@@ -32,5 +32,7 @@
     <string name="profile">Profile</string>
     <string name="devices">Devices</string>
     <string name="statistics">Statistics</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>
