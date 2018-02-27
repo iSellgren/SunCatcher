@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -264,6 +266,14 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
 
     public void btnDiscover(View view)
     {
+        Button button = (Button)findViewById(R.id.btnFindUnpairedDevices);
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+
+
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+
+        button.startAnimation(myAnim);
         Log.d(TAG, "btnDiscover: Looking for unpaired devices.");
 
         if(mBluetoothAdapter.isDiscovering())
