@@ -105,7 +105,7 @@ public class BeginActivity extends AppCompatActivity {
 
 
     public void onpsettingClick(MenuItem item) {
-        Intent p = new Intent(BeginActivity.this, DeviceActivity.class);
+        Intent p = new Intent(BeginActivity.this, tester.class);
         startActivity(p);
     }
 
