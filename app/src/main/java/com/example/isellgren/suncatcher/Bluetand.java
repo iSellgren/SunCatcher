@@ -18,7 +18,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.nio.charset.Charset;
@@ -36,13 +35,11 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
     BluetoothAdapter mBluetoothAdapter;
     Button btnEnableDisable_Discoverable;
 
-    BluetandConnectionService mBluetoothConnection;
+    com.example.isellgren.suncatcher.BluetandConnectionService mBluetoothConnection;
 
     Button btnStartConnection;
     Button btnSend;
     EditText etSend;
-
-
 
     private static final UUID MY_UUID_INSECURE = UUID.fromString("8ce225c0-200a-11e0-ac64-0800200c9a66");
 
@@ -181,7 +178,6 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
         btnEnableDisable_Discoverable = (Button) findViewById(R.id.btnDiscoverable_on_off);
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
         mBTDevices = new ArrayList<>();
-        //btnUp = (ImageButton) findViewById(R.id.ArrowUp);
 
         btnStartConnection = (Button) findViewById(R.id.btnStartConnection);
 
@@ -276,7 +272,6 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
         myAnim.setInterpolator(interpolator);
 
         button.startAnimation(myAnim);
-
         Log.d(TAG, "btnDiscover: Looking for unpaired devices.");
 
         if(mBluetoothAdapter.isDiscovering())
@@ -336,16 +331,8 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
             Log.d(TAG, "Trying to pair with" + deviceName);
             mBTDevices.get(i).createBond();
             mBTDevice = mBTDevices.get(i);
-            mBluetoothConnection = new BluetandConnectionService(Bluetand.this);
+            mBluetoothConnection = new com.example.isellgren.suncatcher.BluetandConnectionService(Bluetand.this);
         }
 
-        mBluetoothConnection.write("hej".getBytes());
-    }
-
-    public void btnUp(View view) {
-
-    }
-
-    public void btnDown(View view) {
     }
 }
