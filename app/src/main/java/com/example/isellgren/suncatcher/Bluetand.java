@@ -35,13 +35,14 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
     BluetoothAdapter mBluetoothAdapter;
     Button btnEnableDisable_Discoverable;
 
-    com.example.isellgren.suncatcher.BluetandConnectionService mBluetoothConnection;
+    BluetandConnectionService mBluetoothConnection;
 
     Button btnStartConnection;
     Button btnSend;
     EditText etSend;
 
     private static final UUID MY_UUID_INSECURE = UUID.fromString("8ce225c0-200a-11e0-ac64-0800200c9a66");
+    //private static final UUID connUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     BluetoothDevice mBTDevice;
 
@@ -180,6 +181,8 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
         mBTDevices = new ArrayList<>();
 
         btnStartConnection = (Button) findViewById(R.id.btnStartConnection);
+        btnSend = (Button) findViewById(R.id.btnSend);
+        etSend = (EditText) findViewById(R.id.editText);
 
 
         //Broadcasts when bond state changes (ie:pairing)
@@ -222,6 +225,8 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
         public void startBTConnection(BluetoothDevice device, UUID uuid)
         {
             Log.d(TAG,"startBTConnection: Initialising RFCOM bluetooth Connection ");
+
+            //uuid = connUUID;
 
             mBluetoothConnection.startClient(device, uuid);
         }
@@ -331,7 +336,7 @@ public class Bluetand extends AppCompatActivity implements AdapterView.OnItemCli
             Log.d(TAG, "Trying to pair with" + deviceName);
             mBTDevices.get(i).createBond();
             mBTDevice = mBTDevices.get(i);
-            mBluetoothConnection = new com.example.isellgren.suncatcher.BluetandConnectionService(Bluetand.this);
+            mBluetoothConnection = new BluetandConnectionService(Bluetand.this);
         }
 
     }
