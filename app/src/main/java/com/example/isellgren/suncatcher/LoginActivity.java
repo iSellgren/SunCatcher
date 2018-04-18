@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity
 
         // Declaring Server ip, username, database name and password
         ip = "192.168.43.145";
-        db = "bits";
+        db = "bit";
         un = "K";
         pass = "K";
         // Declaring Server ip, username, database name and password
