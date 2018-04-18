@@ -25,10 +25,10 @@
         android:text=""
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/etDown" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etDown"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -3,7 +3,6 @@ package com.example.isellgren.suncatcher;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        final EditText etUsername =(EditText) findViewById(R.id.etUsername);
+        final EditText etUsername =(EditText) findViewById(R.id.etDown);
         final EditText etPasssword =(EditText) findViewById(R.id.etPassword);
         final Button bLogin =(Button) findViewById(R.id.bLogin);
         final TextView registerLink =(TextView) findViewById(R.id.tvRegisterHere);
