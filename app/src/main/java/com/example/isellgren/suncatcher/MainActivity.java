@@ -17,6 +17,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        PlayGifView pGif = (PlayGifView) findViewById(R.id.viewGif);
+        pGif.setImageResource(R.drawable.fonster);
 
         mediaPlayer = MediaPlayer.create(this,R.raw.life);
         mediaPlayer.start();
@@ -24,7 +26,7 @@ public class MainActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this, tester.class);
+                Intent homeIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(homeIntent);
                 finish();
             }

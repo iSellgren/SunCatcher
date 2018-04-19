@@ -1,167 +1,90 @@
 package com.example.isellgren.suncatcher;
-import android.annotation.SuppressLint;
-import android.content.Intent;
+
+import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
-import android.os.StrictMode;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-    /*
-        This source code could be used for academic purposes only. Posting on other websites or blogs is only allowed with a dofollow link to the orignal content.
-    */
+public class LoginActivity extends Activity {
 
-public class LoginActivity extends AppCompatActivity
-{
-    // Declaring layout button, edit texts
-    Button login;
-    EditText username,password;
-    ProgressBar progressBar;
-    // End Declaring layout button, edit texts
-
-    // Declaring connection variables
-    Connection con;
-    String un,pass,db,ip;
-    //End Declaring connection variables
+    EditText up, down;
+    String Up, Down;
+    Context ctx=this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
+        up = (EditText) findViewById(R.id.Up);
+        down = (EditText) findViewById(R.id.Down);
 
-        // Getting values from button, texts and progress bar
-        login = (Button) findViewById(R.id.button);
-        username = (EditText) findViewById(R.id.editText);
-        password = (EditText) findViewById(R.id.editText2);
-        // End Getting values from button, texts and progress bar
-
-        // Declaring Server ip, username, database name and password
-        ip = "192.168.43.145";
-        db = "bit";
-        un = "K";
-        pass = "K";
-        // Declaring Server ip, username, database name and password
-
-        // Setting up the function when button login is clicked
-        login.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                CheckLogin checkLogin = new CheckLogin();// this is the Asynctask, which is used to process in background to reduce load on app process
-                checkLogin.execute("");
-            }
-        });
-        //End Setting up the function when button login is clicked
     }
 
-    public class CheckLogin extends AsyncTask<String,String,String>
-    {
-        String z = "";
-        Boolean isSuccess = false;
+    public void Send_btn(View v){
+        Up = up.getText().toString();
+        Down = down.getText().toString();
+
+        BackGround b = new BackGround();
+        b.execute(Up, Down);
+    }
+
+
+    class BackGround extends AsyncTask<String, String, String> {
 
         @Override
-        protected void onPreExecute()
-        {
-            progressBar.setVisibility(View.VISIBLE);
-        }
+        protected String doInBackground(String... params) {
+            String up = params[0];
+            String down = params[1];
+            String id = "1";
+            String data="";
+            int tmp;
 
-        @Override
-        protected void onPostExecute(String r)
-        {
-            progressBar.setVisibility(View.GONE);
-            Toast.makeText(LoginActivity.this, r, Toast.LENGTH_SHORT).show();
-            if(isSuccess)
-            {
-                Toast.makeText(LoginActivity.this , "Login Successfull" , Toast.LENGTH_LONG).show();
-                //finish();
-            }
-        }
-        @Override
-        protected String doInBackground(String... params)
-        {
-            String usernam = username.getText().toString();
-            String passwordd = password.getText().toString();
-            if(usernam.trim().equals("")|| passwordd.trim().equals(""))
-                z = "Please enter Username and Password";
-            else
-            {
-                try
-                {
-                    con = connectionclass(un, pass, db, ip);        // Connect to database
-                    if (con == null)
-                    {
-                        z = "Check Your Internet Access!";
-                    }
-                    else
-                    {
-                        // Change below query according to your own database.
-                        String query = "select * from login where user_name= '" + usernam.toString() + "' and pass_word = '"+ passwordd.toString() +"'  ";
-                        Statement stmt = con.createStatement();
-                        ResultSet rs = stmt.executeQuery(query);
-                        if(rs.next())
-                        {
-                            z = "Login successful";
-                            isSuccess=true;
-                            con.close();
-                        }
-                        else
-                        {
-                            z = "Invalid Credentials!";
-                            isSuccess = false;
-                        }
-                    }
+            try {
+                URL url = new URL("http://192.168.43.145/process.php");
+                String urlParams = "up="+up+"&down="+down+"&id="+id;
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setDoOutput(true);
+                OutputStream os = httpURLConnection.getOutputStream();
+                os.write(urlParams.getBytes());
+                os.flush();
+                os.close();
+                InputStream is = httpURLConnection.getInputStream();
+                while((tmp=is.read())!=-1){
+                    data+= (char)tmp;
                 }
-                catch (Exception ex)
-                {
-                    isSuccess = false;
-                    z = ex.getMessage();
-                }
+                is.close();
+                httpURLConnection.disconnect();
+
+                return data;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
             }
-            return z;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if(s.equals("")){
+                s="Data saved successfully.";
+            }
+            Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
         }
     }
 
-
-    @SuppressLint("NewApi")
-    public Connection connectionclass(String user, String password, String database, String server)
-    {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        Connection connection = null;
-        String ConnectionURL = null;
-        try
-        {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            ConnectionURL = "jdbc:jtds:sqlserver://" + server + database + ";user=" + user+ ";password=" + password + ";";
-            connection = DriverManager.getConnection(ConnectionURL);
-        }
-        catch (SQLException se)
-        {
-            Log.e("error here 1 : ", se.getMessage());
-        }
-        catch (ClassNotFoundException e)
-        {
-            Log.e("error here 2 : ", e.getMessage());
-        }
-        catch (Exception e)
-        {
-            Log.e("error here 3 : ", e.getMessage());
-        }
-        return connection;
-    }
 }
-                

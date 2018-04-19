@@ -4,6 +4,8 @@
     package="com.example.isellgren.suncatcher">
 
     <uses-feature android:name="android.hardware.bluetooth" />
+    <meta-data android:name="com.inthecheesefactory.lab.glidepicasso.GlideConfiguration"
+        android:value="GlideModule"/>
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -28,9 +30,7 @@
         </activity>
         <activity android:name=".BeginActivity" />
         <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".RegisterActivity"
-            android:label="Register Here" />
+
         <activity android:name=".UserAreaActivity" />
         <activity
             android:name=".Mail"
