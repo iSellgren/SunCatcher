@@ -56,6 +56,7 @@ public class LoginActivity extends Activity {
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
                 OutputStream os = httpURLConnection.getOutputStream();
                 os.write(urlParams.getBytes());
                 os.flush();
