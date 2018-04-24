@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Livingroom"
+            android:onClick="Livroom"
             />
 
         <TextView
@@ -55,6 +56,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Bedroom"
+            android:onClick="bedroom"
             />
 
         <TextView
@@ -77,6 +79,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Kitchen"
+            android:onClick="kitchen"
             />
 
         <TextView
