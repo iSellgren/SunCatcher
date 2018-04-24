@@ -36,15 +36,11 @@ public class LoginActivity extends Activity {
 
     }
 
-    public void Send_btn(View v){
-
-
-    }
 
     public void seebbar( ){
         seek_bar = (SeekBar)findViewById(R.id.seekBar);
         text_view =(TextView)findViewById(R.id.textView);
-        text_view.setText("Covered : " + seek_bar.getProgress() + " / " +seek_bar.getMax());
+        text_view.setText("Covered : " + seek_bar.getProgress());
 
 
         seek_bar.setOnSeekBarChangeListener(
@@ -54,8 +50,8 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         progress_value = progress;
-                        text_view.setText("Covered : " + progress + " / " +seek_bar.getMax());
-                        Toast.makeText(LoginActivity.this,"SeekBar in progress",Toast.LENGTH_LONG).show();
+                        text_view.setText("Covered : " + progress );
+                        //Toast.makeText(LoginActivity.this,"SeekBar in progress",Toast.LENGTH_LONG).show();
                         BackGround b = new BackGround();
 
                         b.execute(String.valueOf(progress_value), "0");

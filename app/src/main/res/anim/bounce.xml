@@ -8,6 +8,6 @@
         android:toXScale="0.8"
         android:toYScale="0.8"
         android:duration="500"
-        android:repeatCount="25"
+        android:repeatCount="5"
         android:repeatMode="reverse"/>
 </set>

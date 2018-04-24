@@ -42,16 +42,6 @@ public class BeginActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void didTapButton(View view) {
-        Button button = (Button)findViewById(R.id.conbut);
-        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-
-
-        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
-        myAnim.setInterpolator(interpolator);
-
-        button.startAnimation(myAnim);
-    }
 
     public void onInfoClick(MenuItem item) {
         {
@@ -116,5 +106,6 @@ public class BeginActivity extends AppCompatActivity {
         i.setData(Uri.parse("http://Google.com"));
         startActivity(i);
     }
+
 }
 

@@ -4,6 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/conbut"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="200dp"
+        android:background="@android:drawable/ic_menu_view"
+        android:onClick="didTapButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/conbut"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-200dp"
+        android:text="Press the icon to control your device" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

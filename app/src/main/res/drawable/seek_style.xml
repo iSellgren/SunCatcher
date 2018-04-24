@@ -39,17 +39,20 @@
 <item android:id="@android:id/progress">
 <clip>
     <shape
+        android:dither="true"
         android:shape="rectangle">
         <size
                android:height="800dp" />
-        <corners android:topLeftRadius="10dp"
+        <corners
+            android:topLeftRadius="10dp"
             android:topRightRadius="10dp"
             android:bottomRightRadius="10dp"
             android:bottomLeftRadius="10dp"/>
         <gradient
             android:startColor="#ee9d9e9d"
+            android:type="radial"
             android:centerColor="#ee5a5d5a"
-            android:centerY="0.75"
+            android:centerY="1"
             android:endColor="#ee747674"
             android:angle="270"
             android:gradientRadius="20dp"
