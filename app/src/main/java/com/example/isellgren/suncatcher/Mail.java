@@ -32,7 +32,7 @@ public class Mail extends AppCompatActivity {
         b_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String to = et_to.getText().toString();
+                String to = ("frse1700@student.miun.se");
                 String subject = et_subject.getText().toString();
                 String message = et_message.getText().toString();
 
