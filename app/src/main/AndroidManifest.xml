@@ -4,18 +4,21 @@
     package="com.example.isellgren.suncatcher">
 
     <uses-feature android:name="android.hardware.bluetooth" />
-    <meta-data android:name="com.inthecheesefactory.lab.glidepicasso.GlideConfiguration"
-        android:value="GlideModule"/>
+
+    <meta-data
+        android:name="com.inthecheesefactory.lab.glidepicasso.GlideConfiguration"
+        android:value="GlideModule" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_PRIVILEGED"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,15 +27,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".tester"
-
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".tester"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".BeginActivity" />
         <activity android:name=".LoginActivity" />
-
         <activity android:name=".UserAreaActivity" />
         <activity
             android:name=".Mail"
@@ -55,6 +55,7 @@
         <activity
             android:name=".DeviceActivity"
             android:label="Devices" />
+        <activity android:name=".Calendar"></activity>
     </application>
 
 </manifest>

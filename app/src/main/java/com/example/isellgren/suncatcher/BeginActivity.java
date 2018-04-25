@@ -65,7 +65,7 @@ public class BeginActivity extends AppCompatActivity {
     public void onWifiClick(MenuItem item) {
 
         if (item.getItemId() == R.id.wifi) {
-            Intent l = new Intent(BeginActivity.this, Wifi.class);
+            Intent l = new Intent(BeginActivity.this, Calendar.class);
             startActivity(l);
         }
     }

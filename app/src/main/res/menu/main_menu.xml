@@ -16,9 +16,9 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/wifi"
-        android:icon="@drawable/ic_mr_button_connecting_26_dark"
+        android:icon="@android:drawable/ic_menu_my_calendar"
         android:onClick="onWifiClick"
-        android:title="@string/p2pwifi"
+        android:title="Calendar"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/logreg"
